@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     KEYWORDS = ['дизайн', 'фото', 'web', 'python', 'php', 'id']
     KEYWORDS = set(KEYWORDS)
-
+    nice_articles = []
     url = 'https://habr.com/ru/all/'
     result = requests.get(url)
     page = BeautifulSoup(result.text, 'html.parser')
@@ -25,7 +25,9 @@ if __name__ == '__main__':
             elif 'вчера' in day:
                 minus = timedelta(days=1)
                 day = date.today() - minus
-            print(f'{day} - {title} - {href}')
+            string = f'{day} - {title} - {href}'
+            nice_articles.append(string)
+
 
 
 
